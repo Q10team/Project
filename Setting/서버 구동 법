@@ -14,7 +14,7 @@
 
 * 내부ip알아내는 법 : 시작메뉴 -> cmd -> ipconfig -> IPv4 주소 확인
 
-3) 설치경로\wamp64\www 폴더에 주어진 php파일 추가(원래있던 php파일은 필요없으니  삭제해도 좋음)
+3) 설치경로\wamp64\www 폴더에 깃헙 Server폴더 내의 파일들 추가(원래있던 php파일은 필요없으니  삭제해도 좋음)
 
 4) root계정에서 아래 sql문을 실행(유저이름, 비밀번호에 본인이 원하는 문자열 입력) >>
 create database todolistapp DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
