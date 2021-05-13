@@ -1,0 +1,22 @@
+use todolistapp;
+
+drop table user;
+create table user(
+userID varchar(20) not null,
+userPW varchar(20) not null,
+userName varchar(20) not null,
+userEmail varchar(35) not null,
+primary key(userID)
+)  DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+drop table todolist;
+create table todolist (
+listID int not null auto_increment,
+userID varchar(20) not null,
+content varchar(255) not null,
+importance int,
+processHours int,
+uploadDate date not null,
+isAchieved boolean not null default false,
+primary key(listID)
+) DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
