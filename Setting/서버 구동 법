@@ -23,6 +23,8 @@ GRANT ALL PRIVILEGES ON todolistapp.* TO '유저이름'@'localhost' identified b
 
 5) dbcon.php에서 유저이름, 비밀번호를 본인 것으로 수정
 
+* php 파일연결 프로그램은 본인이 원하는 것을 사용할 것(저는 Notepad++ 사용)
+
 6) DB 구조 설정을 수행
 
 
