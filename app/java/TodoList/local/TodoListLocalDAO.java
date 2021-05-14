@@ -38,9 +38,12 @@ public class TodoListLocalDAO extends SQLiteOpenHelper {
             SQLiteDatabase db = getWritableDatabase();
             ContentValues contentValues = new ContentValues();
             contentValues.put("title", todoList.getTitle());
-            contentValues.put("content", todoList.getContent());
-            contentValues.put("importance", todoList.getImportance());
-            contentValues.put("processHours", todoList.getProcessHours());
+            if(todoList.getContent()!=null)
+                contentValues.put("content", todoList.getContent());
+            if(todoList.getImportance()!=null)
+                contentValues.put("importance", todoList.getImportance());
+            if(todoList.getProcessHours()!=null)
+                contentValues.put("processHours", todoList.getProcessHours());
             long result = db.insert(TABLE_NAME, null, contentValues);
             db.close();
             if(result == -1)

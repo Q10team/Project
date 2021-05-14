@@ -24,6 +24,7 @@ public class ListDetail extends AppCompatActivity {
         setContentView(R.layout.list_detail);
 
         final TodoList todoList = (TodoList)getIntent().getSerializableExtra("todoList");
+        final DateData date = (DateData) getIntent().getSerializableExtra("date");
         tv_dtitle = (TextView)findViewById(R.id.tv_dtitle);
         tv_dcontent = (TextView)findViewById(R.id.tv_dcontent);
         tv_dimportance = (TextView)findViewById(R.id.tv_dimportance);
@@ -44,6 +45,7 @@ public class ListDetail extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ListDetail.this, MainActivity.class);
+                intent.putExtra("date", date);
                 startActivity(intent);
             }
         });
@@ -64,16 +66,16 @@ public class ListDetail extends AppCompatActivity {
                             //로컬이라 포인트 미지급
                         }
                         else {
-                            AlertDialog.Builder builder1 = new AlertDialog.Builder(getBaseContext());
-                            builder1.setMessage("취소되었습니다.");
-                            builder1.setCancelable(false);
-                            builder1.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            AlertDialog.Builder builder = new AlertDialog.Builder(getBaseContext());
+                            builder.setMessage("취소되었습니다.");
+                            builder.setCancelable(false);
+                            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
                                     dialog.cancel();
                                 }
                             });
-                            builder1.create().show();
+                            builder.create().show();
                         }
                     }
                 });
@@ -92,6 +94,7 @@ public class ListDetail extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(ListDetail.this, UpdateTodoList.class);
                 intent.putExtra("todoList", todoList);
+                intent.putExtra("date", date);
                 startActivity(intent);
             }
         });
@@ -108,6 +111,7 @@ public class ListDetail extends AppCompatActivity {
                         TodoListLocalDAO database = new TodoListLocalDAO(getBaseContext());
                         if(database.Delete(todoList.getID())){
                             Intent intent = new Intent(ListDetail.this, MainActivity.class);
+                            intent.putExtra("date", date);
                             startActivity(intent);
                         }else{
                             AlertDialog.Builder builder1 = new AlertDialog.Builder(getBaseContext());

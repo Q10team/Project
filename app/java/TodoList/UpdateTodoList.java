@@ -23,6 +23,7 @@ public class UpdateTodoList extends AppCompatActivity {
         setContentView(R.layout.updatetodolist);
         final TodoListLocalDAO localdb = new TodoListLocalDAO(getBaseContext());
         final TodoList todoList = (TodoList) getIntent().getSerializableExtra("todoList");
+        final DateData date = (DateData) getIntent().getSerializableExtra("date");
         et_utitle = (EditText)findViewById(R.id.et_utitle);
         et_ucontent = (EditText)findViewById(R.id.et_ucontent);
         et_uimportance = (EditText)findViewById(R.id.et_uimportance);
@@ -45,6 +46,7 @@ public class UpdateTodoList extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(UpdateTodoList.this, ListDetail.class);
                 intent.putExtra("todoList", todoList);
+                intent.putExtra("date", date);
                 startActivity(intent);
             }
         });
@@ -66,6 +68,7 @@ public class UpdateTodoList extends AppCompatActivity {
                 if(localdb.Update(todoList)){
                     Toast.makeText(UpdateTodoList.this, "SUCCESS!", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(UpdateTodoList.this, com.example.teamproject.TodoList.MainActivity.class);
+                    intent.putExtra("date", date);
                     startActivity(intent);
                 }else{
                     Toast.makeText(UpdateTodoList.this, "FAILED!", Toast.LENGTH_SHORT).show();

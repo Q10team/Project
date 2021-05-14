@@ -22,6 +22,8 @@ public class MakeTodoList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.maketodolist);
 
+        final DateData date = (DateData) getIntent().getSerializableExtra("date");
+
         localdb = new TodoListLocalDAO(this);
 
         et_regtitle = (EditText)findViewById(R.id.et_title);
@@ -53,6 +55,7 @@ public class MakeTodoList extends AppCompatActivity {
                         et_regimportance.setText("");
                         et_regprocessHours.setText("");
                         Intent intent = new Intent(MakeTodoList.this, com.example.teamproject.TodoList.MainActivity.class);
+                        intent.putExtra("date", date);
                         startActivity(intent);
                     }
                 }else{
@@ -65,6 +68,7 @@ public class MakeTodoList extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MakeTodoList.this, com.example.teamproject.TodoList.MainActivity.class);
+                intent.putExtra("date", date);
                 startActivity(intent);
             }
         });

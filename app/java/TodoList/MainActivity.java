@@ -40,7 +40,16 @@ public class MainActivity extends AppCompatActivity {
         year=cal.get(Calendar.YEAR);
         month=cal.get(Calendar.MONTH);
         day=cal.get(Calendar.DATE);
-
+        final DateData datedata = (DateData) getIntent().getSerializableExtra("date");
+        DateData date = new DateData(year, month, day);
+        if(datedata!=null) {
+            date.setYear(datedata.getYear());
+            date.setMonth(datedata.getMonth());
+            date.setDay(datedata.getDay());
+            year = datedata.getYear();
+            month = datedata.getMonth();
+            day = datedata.getDay();
+        }
 
         database = new TodoListLocalDAO(this);
         btn_add = (Button)findViewById(R.id.btn_add);
@@ -66,6 +75,9 @@ public class MainActivity extends AppCompatActivity {
                 year=Year;
                 month=monthOfYear;
                 day=dayOfMonth;
+                date.setYear(year);
+                date.setMonth(month);
+                date.setDay(day);
                 OnDateSetListener();
             }
             public void OnDateSetListener() {
@@ -85,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
                 TodoList todoList = database.Read(year, month, day).get(position);
                 Intent intent = new Intent(MainActivity.this, ListDetail.class);
                 intent.putExtra("todoList", todoList);
+                intent.putExtra("date", date);
                 startActivity(intent);
             }
         });
@@ -92,6 +105,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, MakeTodoList.class);
+                intent.putExtra("date", date);
                 startActivity(intent);
             }
         });

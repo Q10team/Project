@@ -20,8 +20,8 @@ public class TodoList implements Serializable {
     private int ID; //listID, 식별용
     private String title;
     private String content;
-    private int importance;
-    private int processHours;
+    private Integer importance;
+    private Integer processHours;
     private String uploadDate;
     private int isAchieved;
 
@@ -34,11 +34,11 @@ public class TodoList implements Serializable {
     public String getContent() { return content; }
     public void setContent(String content) { this.content = content; }
 
-    public int getImportance() { return ID; }
-    public void setImportance(int importance) { this.ID = ID; }
+    public Integer getImportance() { return importance; }
+    public void setImportance(Integer importance) { this.importance = importance; }
 
-    public int getProcessHours() { return processHours; }
-    public void setProcessHours(int processHours) { this.processHours = processHours; }
+    public Integer getProcessHours() { return processHours; }
+    public void setProcessHours(Integer processHours) { this.processHours = processHours; }
 
     public String getUploadDate() { return uploadDate; }
     public void setUploadDate(String uploadDate) { this.uploadDate = uploadDate; }
@@ -46,7 +46,7 @@ public class TodoList implements Serializable {
     public int getIsAchieved() { return isAchieved; }
     public void setIsAchieved(int isAchieved) { this.isAchieved = isAchieved; }
 
-    public TodoList(int ID, String title, String content, int importance, int processHours, String uploadDate, int isAchieved) {
+    public TodoList(int ID, String title, String content, Integer importance, Integer processHours, String uploadDate, int isAchieved) {
         this.ID = ID;
         this.title = title;
         this.content = content;
