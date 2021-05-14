@@ -1,0 +1,59 @@
+< 기본설정 >
+
+File -> Setting -> Git -> 우측 상단 test
+
+File -> Setting -> GitHub -> 우측 상단 + -> 본인 계정 추가
+
+* invalid authentication data. 404 not found가 뜨면 https://zluoy.tistory.com/77 참고
+
+VCS -> Enable Version Control Integration.. -> Git 선택 -> OK
+
+
+
+< 깃허브의 master branch 코드 가져오기 >
+
+File -> New -> Project from Version Control... -> https://github.com/Q10team/App.git 입력 -> Clone
+
+
+
+< repository 설정 >
+
+VCS -> Git -> Remotes -> + -> https://github.com/Q10team/App.git 입력 -> OK
+
+
+
+< branch 추가 >
+
+VCS -> Git -> branchs -> New branch -> branch name 입력
+
+VCS -> Git -> branchs -> Local branch -> 만들었던 branch -> Push
+
+
+< branch 설정 >
+
+VCS -> Git -> branchs -> 원하는 branch -> Check out
+
+
+
+< git에 file 추가하기 >
+
+우측 Project 창 -> 프로젝트 우클릭 -> Git -> Add
+
+* 새로운 파일을 추가할 때마다 Add File to Git 창이 자동으로 뜨며, 이 때 Add를 누르면 편함
+
+
+
+< 본인 branch에 Commit push >
+
+우측 Commit 창 -> 체크박스 체크 ->Commit Message 적당히 입력 -> 우측 하단 Commit -> 
+
+VCS -> Git -> Push
+
+
+
+< pull request 생성 / 승인> 
+
+그냥 https://github.com/Q10team/App에 접속해서 처리할 수 있음
+
+안드로이드 스튜디오 내에서 처리하길 원한다면 아래의 기능을 이용할 것
+VCS -> Git -> Create Pull Request / View Pull Request
