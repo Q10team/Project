@@ -1,7 +1,8 @@
-package com.example.teamproject;
+package com.example.teamproject.login;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -16,16 +17,19 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.teamproject.Global;
+import com.example.teamproject.R;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.nio.channels.InterruptedByTimeoutException;
 import java.util.HashMap;
 import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText et_ID, et_PW;
-    private Button btn_login, btn_register;
+    private Button btn_login, btn_register, btn_noregister;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +40,14 @@ public class LoginActivity extends AppCompatActivity {
         et_PW = findViewById(R.id.et_PW);
         btn_login = findViewById(R.id.btn_login);
         btn_register = findViewById(R.id.btn_register);
+        btn_noregister = findViewById(R.id.btn_noregister);
 
+        btn_noregister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(LoginActivity.this, com.example.teamproject.TodoList.MainActivity.class));
+            }
+        });
 
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,6 +80,9 @@ public class LoginActivity extends AppCompatActivity {
                                         String Name = jsonObject.getString("Name");
                                         if (success) { // 로그인에 성공한 경우;
                                             Toast.makeText(getApplicationContext(),Name+"님 환영합니다.",Toast.LENGTH_SHORT).show();
+                                            Intent intent =  new Intent(LoginActivity.this, com.example.teamproject.TodoList.MainActivity.class);
+                                            intent.putExtra("ID", ID);
+                                            startActivity(intent);
                                         } else { // 로그인에 실패한 경우
                                             Toast.makeText(getApplicationContext(),"로그인에 실패하였습니다.",Toast.LENGTH_SHORT).show();
                                             return;
