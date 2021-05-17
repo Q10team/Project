@@ -13,10 +13,13 @@ drop table todolist;
 create table todolist (
 listID int not null auto_increment,
 userID varchar(20) not null,
-content varchar(255) not null,
+title varchar(30) not null,
+content varchar(255),
 importance int,
 processHours int,
-uploadDate date not null,
-isAchieved boolean not null default false,
+uploadDate date not null default now(),
+isAchieved int not null default 0,
 primary key(listID)
 ) DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+* mariadb는 now() 대신 current_timestamp
