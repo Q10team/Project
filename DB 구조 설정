@@ -17,9 +17,9 @@ title varchar(30) not null,
 content varchar(255),
 importance int,
 processHours int,
-uploadDate date not null default now(),
+uploadDate date not null default current_timestamp,
 isAchieved int not null default 0,
 primary key(listID)
 ) DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
-* mariadb는 now() 대신 current_timestamp
+* 5.6.5미만은 current_timestamp 대신 now()
