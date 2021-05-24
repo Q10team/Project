@@ -5,7 +5,7 @@
     $userID = $_POST["userID"];
     $userpoint = $_POST["userpoint"];
 	
-    $statement = mysqli_prepare($con, 'UPDATE user SET userpoint=? WHERE userID=?;');
+    $statement = mysqli_prepare($con, 'UPDATE user SET userPoint=? WHERE userID=?;');
     mysqli_stmt_bind_param($statement, 'is', $userpoint, $userID);
     mysqli_stmt_execute($statement);
 	
