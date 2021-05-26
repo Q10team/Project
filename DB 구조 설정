@@ -6,6 +6,7 @@ userID varchar(20) not null,
 userPW varchar(20) not null,
 userName varchar(20) not null,
 userEmail varchar(35) not null,
+userPoint int not null default 0,
 primary key(userID)
 )  DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
@@ -21,5 +22,3 @@ uploadDate date not null,
 isAchieved int not null default 0,
 primary key(listID)
 ) DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
-* 5.6.5미만은 current_timestamp 대신 now()
