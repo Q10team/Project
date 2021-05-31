@@ -1,6 +1,6 @@
 <?php
 	
-	include('userDAO.php');
+	include('dbcon.php');
 	
 	$ID = $_POST["ID"];
     $PW = $_POST["PW"];
@@ -11,7 +11,7 @@
     mysqli_stmt_execute($statement);
 	
     mysqli_stmt_store_result($statement);
-    mysqli_stmt_bind_result($statement, $ID, $PW, $Name, $Age);
+    mysqli_stmt_bind_result($statement, $ID, $PW, $Name, $Email, $Point);
  
     $response = array();
     $response["success"] = false;
