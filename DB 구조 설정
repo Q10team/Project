@@ -22,3 +22,9 @@ uploadDate date not null,
 isAchieved int not null default 0,
 primary key(listID)
 ) DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+drop table friend;
+create table friend (
+sender varchar(20) not null,
+reciever varchar(20) not null
+) DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
