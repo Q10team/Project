@@ -7,6 +7,7 @@ userPW varchar(20) not null,
 userName varchar(20) not null,
 userEmail varchar(35) not null,
 userPoint int not null default 0,
+userAvata int not null default 0,
 primary key(userID)
 )  DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
