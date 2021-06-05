@@ -1,4 +1,4 @@
-<?php
+?php
 	
 	include('dbcon.php');
 	
@@ -11,7 +11,7 @@
     mysqli_stmt_execute($statement);
 	
     mysqli_stmt_store_result($statement);
-    mysqli_stmt_bind_result($statement, $ID, $PW, $Name, $Email, $Point);
+    mysqli_stmt_bind_result($statement, $ID, $PW, $Name, $Email, $Point, $Avata);
  
     $response = array();
     $response["success"] = false;
