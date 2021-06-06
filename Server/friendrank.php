@@ -3,7 +3,6 @@
 	include('dbcon.php');
    
     $ID = $_POST["userID"];
-    $ID = 'user2';
 	
     $statement = mysqli_prepare($con, 'SELECT reciever FROM friend WHERE sender = ?');
     mysqli_stmt_bind_param($statement, 's', $ID);
